@@ -25,3 +25,10 @@ jobs:
 
     outputs:
       shortRev: ${{ steps.print.outputs.shortRev }}
+
+  main:
+    runs-on: ubuntu-latest
+    needs: pre
+    steps:
+      - run: |
+          echo ${{ needs.pre.outputs.shortRev }}
