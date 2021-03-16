@@ -1,14 +1,14 @@
 name: Test
 
 on:
-  # workflow_dispatch:
-  #   inputs:
-  #     stage:
-  #       description: 'XXX'     
-  #       required: true
-  #       default: 'hello'
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: 'XXX'     
+        required: true
+        default: 'hello'
 
-  push:
+  # push:
 
 env:
   DEPLOY_APPS: -l name=server -l name=prover -l name=explorer
