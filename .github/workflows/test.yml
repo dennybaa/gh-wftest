@@ -16,6 +16,7 @@ env:
 jobs:
   pre:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/tags/v-test'
 
     steps:
       - uses: actions/checkout@v2
