@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  # workflow_dispatch:
+  #   inputs:
+  #     stage:
+  #       description: 'XXX'     
+  #       required: true
+  #       default: 'hello'
+
+  push:
+
+env:
+  DEPLOY_APPS: -l name=server -l name=prover -l name=explorer
+
+jobs:
+  pre:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - id: print
+        run: |
+          echo "::set-output name=shortRev::$(git rev-parse --short HEAD)"
+
+    outputs:
+      shortRev: ${{ steps.print.outputs.shortRev }}
